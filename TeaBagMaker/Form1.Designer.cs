@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.cntDownbtn = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.cbList = new System.Windows.Forms.ComboBox();
+            this.Tresult = new System.Windows.Forms.TextBox();
+            this.TeaBagTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // cntDownbtn
@@ -42,30 +44,42 @@
             this.cntDownbtn.TabIndex = 0;
             this.cntDownbtn.Text = "담그기!";
             this.cntDownbtn.UseVisualStyleBackColor = true;
+            this.cntDownbtn.Click += new System.EventHandler(this.CntDownbtn_Click);
             // 
-            // comboBox2
+            // cbList
             // 
-            this.comboBox2.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(13, 13);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(259, 32);
-            this.comboBox2.TabIndex = 1;
+            this.cbList.Font = new System.Drawing.Font("굴림", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.cbList.FormattingEnabled = true;
+            this.cbList.Location = new System.Drawing.Point(13, 13);
+            this.cbList.Name = "cbList";
+            this.cbList.Size = new System.Drawing.Size(259, 32);
+            this.cbList.TabIndex = 1;
+            this.cbList.SelectedIndexChanged += new System.EventHandler(this.CbList_SelectedIndexChanged);
+            this.cbList.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CbList_KeyPress);
             // 
-            // textBox2
+            // Tresult
             // 
-            this.textBox2.Font = new System.Drawing.Font("굴림", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.textBox2.Location = new System.Drawing.Point(13, 114);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(258, 50);
-            this.textBox2.TabIndex = 2;
+            this.Tresult.Font = new System.Drawing.Font("굴림", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.Tresult.Location = new System.Drawing.Point(13, 114);
+            this.Tresult.Name = "Tresult";
+            this.Tresult.Size = new System.Drawing.Size(258, 50);
+            this.Tresult.TabIndex = 2;
+            this.Tresult.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Tresult.TextChanged += new System.EventHandler(this.Tresult_TextChanged);
+            // 
+            // TeaBagTimer
+            // 
+            this.TeaBagTimer.Interval = 1000;
+            this.TeaBagTimer.Tick += new System.EventHandler(this.TeaBagTimer_Tick);
             // 
             // Form1
             // 
             this.ClientSize = new System.Drawing.Size(284, 212);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.Tresult);
+            this.Controls.Add(this.cbList);
             this.Controls.Add(this.cntDownbtn);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "TeaBagMaker";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -80,8 +94,9 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button cntDownbtn;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.ComboBox cbList;
+        private System.Windows.Forms.TextBox Tresult;
+        private System.Windows.Forms.Timer TeaBagTimer;
     }
 }
 
